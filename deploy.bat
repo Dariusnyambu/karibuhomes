@@ -13,7 +13,7 @@ pause >nul
 
 echo.
 echo Setting up GitHub remote...
-git remote add origin https://github.com/YOUR_USERNAME/karibu-diaspora-homes.git
+git remote add origin https://github.com/dariusnyambu/karibu-diaspora-homes.git
 
 echo.
 echo Pushing to GitHub...

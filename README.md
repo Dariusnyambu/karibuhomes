@@ -28,7 +28,7 @@ Your browser will automatically open at **http://localhost:3000** 🎉
 1. **Create a GitHub repository** named `karibu-diaspora-homes`
 2. **Update the remote URL** in `package.json`:
    ```json
-   "homepage": "https://YOUR_USERNAME.github.io/karibu-diaspora-homes"
+   "homepage": "https://dariusnyambu.github.io/karibu-diaspora-homes"
    ```
 3. **Run the deployment script**:
    ```bash
@@ -36,7 +36,7 @@ Your browser will automatically open at **http://localhost:3000** 🎉
    ```
    Or manually:
    ```bash
-   git remote add origin https://github.com/YOUR_USERNAME/karibu-diaspora-homes.git
+   git remote add origin https://github.com/dariusnyambu/karibu-diaspora-homes.git
    git branch -M main
    git push -u origin main
    npm run deploy
@@ -52,7 +52,7 @@ npm run build
 # Upload the contents of the build folder to your web server
 ```
 
-Your live site will be available at: **https://YOUR_USERNAME.github.io/karibu-diaspora-homes**
+Your live site will be available at: **https://dariusnyambu.github.io/karibu-diaspora-homes**
 
 ---
 
