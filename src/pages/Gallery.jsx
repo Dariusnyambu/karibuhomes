@@ -37,28 +37,31 @@ export default function Gallery({ dark }) {
       </div>
 
       {/* Filter Tabs */}
-      <div style={{ padding: "2rem 1.5rem 0", display: "flex", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
-        {FILTERS.map(f => (
-          <button key={f} onClick={() => setFilter(f)} style={{
-            padding: "9px 22px", borderRadius: 24, border: `1px solid ${filter === f ? GOLD : border}`,
-            background: filter === f ? GOLD : "transparent",
-            color: filter === f ? NAVY : textMuted,
-            fontSize: 13, fontWeight: filter === f ? 700 : 400,
-            cursor: "pointer", fontFamily: "'Nunito Sans', sans-serif",
-            transition: "all 0.2s", letterSpacing: "0.04em",
-          }}>{f}</button>
-        ))}
+      <div style={{ padding: "2rem 1.5rem 0", textAlign: "center" }}>
+        <div style={{ color: textMuted, fontSize: 12, letterSpacing: "0.05em", marginBottom: "1rem", fontFamily: "'Nunito Sans', sans-serif", textTransform: "uppercase" }}>Filter by Property</div>
+        <div style={{ display: "flex", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
+          {FILTERS.map(f => (
+            <button key={f} onClick={() => setFilter(f)} style={{
+              padding: "9px 22px", borderRadius: 24, border: `1px solid ${filter === f ? GOLD : border}`,
+              background: filter === f ? GOLD : "transparent",
+              color: filter === f ? NAVY : textMuted,
+              fontSize: 13, fontWeight: filter === f ? 700 : 400,
+              cursor: "pointer", fontFamily: "'Nunito Sans', sans-serif",
+              transition: "all 0.2s", letterSpacing: "0.04em",
+            }}>{f}</button>
+          ))}
+        </div>
       </div>
 
       {/* Grid */}
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "2rem 1.5rem 4rem" }}>
-        <div style={{ columns: "clamp(200px, 30vw, 320px)", columnGap: 14 }}>
+        <div style={{ columns: "clamp(150px, 25vw, 280px)", columnGap: 12 }}>
           {filtered.map((item, i) => (
-            <div key={i} onClick={() => setLightbox(i)} style={{ breakInside: "avoid", marginBottom: 14, borderRadius: 10, overflow: "hidden", cursor: "pointer", position: "relative", display: "block" }}
+            <div key={i} onClick={() => setLightbox(i)} style={{ breakInside: "avoid", marginBottom: 12, borderRadius: 8, overflow: "hidden", cursor: "pointer", position: "relative", display: "block", maxHeight: "400px" }}
               onMouseEnter={e => { e.currentTarget.querySelector("img").style.transform = "scale(1.05)"; e.currentTarget.querySelector(".lbl").style.opacity = "1"; }}
               onMouseLeave={e => { e.currentTarget.querySelector("img").style.transform = "scale(1)"; e.currentTarget.querySelector(".lbl").style.opacity = "0"; }}>
-              <img src={item.url} alt={item.label} style={{ width: "100%", display: "block", transition: "transform 0.4s", borderRadius: 10 }} loading="lazy" />
-              <div className="lbl" style={{ position: "absolute", inset: 0, background: "rgba(13,31,60,0.55)", opacity: 0, transition: "opacity 0.3s", display: "flex", alignItems: "flex-end", padding: "12px 14px", borderRadius: 10 }}>
+              <img src={item.url} alt={item.label} style={{ width: "100%", display: "block", transition: "transform 0.4s", borderRadius: 8, objectFit: "cover", height: "250px" }} loading="lazy" />
+              <div className="lbl" style={{ position: "absolute", inset: 0, background: "rgba(13,31,60,0.55)", opacity: 0, transition: "opacity 0.3s", display: "flex", alignItems: "flex-end", padding: "12px 14px", borderRadius: 8 }}>
                 <div>
                   <div style={{ color: "#fff", fontSize: 13, fontWeight: 600, fontFamily: "'Nunito Sans', sans-serif" }}>{item.label.split("· ")[1]}</div>
                   <div style={{ color: GOLD, fontSize: 10, letterSpacing: "0.1em", fontFamily: "'Nunito Sans', sans-serif" }}>{item.property}</div>

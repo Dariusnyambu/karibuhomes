@@ -1,6 +1,11 @@
 export const GOLD = "#c9a227";
 export const NAVY = "#0d1f3c";
 
+const PUBLIC_URL = process.env.PUBLIC_URL || "";
+
+// Helper function to normalize image URLs with PUBLIC_URL
+const img = (path) => `${PUBLIC_URL}${path}`;
+
 export const PROPERTIES = [
   {
     id: 1,
@@ -17,12 +22,12 @@ export const PROPERTIES = [
     amenities: ["Free WiFi", "Smart TV", "Free Parking", "Full Kitchen", "Hot Shower", "Security", "Balcony", "Workspace"],
     amenityIcons: ["📶", "📺", "🚗", "🍳", "🚿", "🔒", "🌿", "💼"],
     images: [
-      "/images/great-hornbill/living-room-1.avif",
-      "/images/great-hornbill/master-bedroom-1.avif",
-      "/images/great-hornbill/exterior.avif",
-      "/images/great-hornbill/lounge-netflix.avif",
-      "/images/great-hornbill/living-room-2.avif",
-      "/images/great-hornbill/bedroom-2.avif",
+      img("/images/great-hornbill/living-room-1.avif"),
+      img("/images/great-hornbill/master-bedroom-1.avif"),
+      img("/images/great-hornbill/exterior.avif"),
+      img("/images/great-hornbill/lounge-netflix.avif"),
+      img("/images/great-hornbill/living-room-2.avif"),
+      img("/images/great-hornbill/bedroom-2.avif"),
     ],
     description: "A spacious 3-bedroom retreat in Golf View Estate. Featuring a king-size four-poster bed, Smart TV, modern furnishings, balcony, and all the comforts of home.",
     longDescription: "Great Hornbill Thika is your perfect home away from home. Nestled in the serene Golf View Estate on Michuki Road, this beautifully furnished 3-bedroom house sleeps up to 6 guests in comfort and style. Featuring a king-size four-poster bed, Smart TV lounge, fully equipped kitchen, hot shower, secure parking, and a private balcony with estate views.",
@@ -42,12 +47,12 @@ export const PROPERTIES = [
     amenities: ["Free WiFi", "Free Parking", "Netflix", "Ensuite Bathrooms", "Full Kitchen", "Washing Machine", "Security", "Rooftop Terrace"],
     amenityIcons: ["📶", "🚗", "🎬", "🛁", "🍳", "👕", "🔒", "🌇"],
     images: [
-      "/images/green-tourmaline/living-room-1.jpg",
-      "/images/green-tourmaline/lounge-netflix.jpg",
-      "/images/green-tourmaline/master-bedroom.jpg",
-      "/images/green-tourmaline/kitchen-1.jpg",
-      "/images/green-tourmaline/ensuite-shower.jpg",
-      "/images/green-tourmaline/balcony.jpg",
+      img("/images/green-tourmaline/living-room-1.jpg"),
+      img("/images/green-tourmaline/lounge-netflix.jpg"),
+      img("/images/green-tourmaline/master-bedroom.jpg"),
+      img("/images/green-tourmaline/kitchen-1.jpg"),
+      img("/images/green-tourmaline/ensuite-shower.jpg"),
+      img("/images/green-tourmaline/balcony.jpg"),
     ],
     description: "All-ensuite premium living with LED ceilings, Netflix TV wall, fully-fitted kitchen with double-door fridge & oven, marble bathrooms, and a private rooftop terrace.",
     longDescription: "Green Tourmaline Thika is our flagship premium property on Bogoria Road, Golf View Estate. Every bedroom is fully ensuite with stunning marble bathrooms and glass shower enclosures. Enjoy the cinematic Netflix TV lounge, a modern fully-fitted kitchen with built-in oven and American double-door fridge, beautiful wooden staircase with LED step lighting, and a spacious private rooftop terrace overlooking lush gardens.",
@@ -62,20 +67,20 @@ export const TESTIMONIALS = [
 ];
 
 export const GALLERY_ITEMS = [
-  { label: "GT · Living Room", url: "/images/green-tourmaline/living-room-1.jpg", property: "Green Tourmaline" },
-  { label: "GT · Netflix Lounge", url: "/images/green-tourmaline/lounge-netflix.jpg", property: "Green Tourmaline" },
-  { label: "GT · Master Bedroom", url: "/images/green-tourmaline/master-bedroom.jpg", property: "Green Tourmaline" },
-  { label: "GT · Second Bedroom", url: "/images/green-tourmaline/bedroom-2.jpg", property: "Green Tourmaline" },
-  { label: "GT · Kitchen", url: "/images/green-tourmaline/kitchen-1.jpg", property: "Green Tourmaline" },
-  { label: "GT · Dining Area", url: "/images/green-tourmaline/dining.jpg", property: "Green Tourmaline" },
-  { label: "GT · Ensuite Bathroom", url: "/images/green-tourmaline/ensuite-shower.jpg", property: "Green Tourmaline" },
-  { label: "GT · Rooftop Terrace", url: "/images/green-tourmaline/balcony.jpg", property: "Green Tourmaline" },
-  { label: "GH · Living Room", url: "/images/great-hornbill/living-room-1.avif", property: "Great Hornbill" },
-  { label: "GH · Smart TV Lounge", url: "/images/great-hornbill/lounge-netflix.avif", property: "Great Hornbill" },
-  { label: "GH · Master Bedroom", url: "/images/great-hornbill/master-bedroom-1.avif", property: "Great Hornbill" },
-  { label: "GH · Exterior & Gate", url: "/images/great-hornbill/exterior.avif", property: "Great Hornbill" },
-  { label: "GH · Bedroom View", url: "/images/great-hornbill/master-bedroom-2.avif", property: "Great Hornbill" },
-  { label: "GH · Second Bedroom", url: "/images/great-hornbill/bedroom-2.avif", property: "Great Hornbill" },
+  { label: "GH · Living Room", url: img("/images/great-hornbill/living-room-1.avif"), property: "Great Hornbill" },
+  { label: "GH · Smart TV Lounge", url: img("/images/great-hornbill/lounge-netflix.avif"), property: "Great Hornbill" },
+  { label: "GH · Master Bedroom", url: img("/images/great-hornbill/master-bedroom-1.avif"), property: "Great Hornbill" },
+  { label: "GH · Exterior", url: img("/images/great-hornbill/exterior.avif"), property: "Great Hornbill" },
+  { label: "GH · Bedroom View", url: img("/images/great-hornbill/master-bedroom-2.avif"), property: "Great Hornbill" },
+  { label: "GH · Second Bedroom", url: img("/images/great-hornbill/bedroom-2.avif"), property: "Great Hornbill" },
+  { label: "GH · Dining Area", url: img("/images/great-hornbill/dining.avif"), property: "Great Hornbill" },
+  { label: "GH · Staircase", url: img("/images/great-hornbill/staircase.avif"), property: "Great Hornbill" },
+  { label: "GT · Living Room", url: img("/images/green-tourmaline/living-room-1.jpg"), property: "Green Tourmaline" },
+  { label: "GT · Netflix Lounge", url: img("/images/green-tourmaline/lounge-netflix.jpg"), property: "Green Tourmaline" },
+  { label: "GT · Master Bedroom", url: img("/images/green-tourmaline/master-bedroom.jpg"), property: "Green Tourmaline" },
+  { label: "GT · Kitchen", url: img("/images/green-tourmaline/kitchen-1.jpg"), property: "Green Tourmaline" },
+  { label: "GT · Ensuite Bathroom", url: img("/images/green-tourmaline/ensuite-shower.jpg"), property: "Green Tourmaline" },
+  { label: "GT · Rooftop Terrace", url: img("/images/green-tourmaline/balcony.jpg"), property: "Green Tourmaline" },
 ];
 
 export const FEATURES = [

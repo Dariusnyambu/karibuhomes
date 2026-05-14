@@ -80,8 +80,8 @@ export default function Navbar({ currentPage, onNavigate, dark, setDark }) {
           ))}
         </ul>
 
-        {/* Right controls */}
-        <div style={{ display: "flex", gap: 12, alignItems: "center", flexShrink: 0 }}>
+        {/* Right controls - Desktop only */}
+        <div className="nav-controls" style={{ display: "flex", gap: 12, alignItems: "center", flexShrink: 0 }}>
           <button onClick={() => setDark(!dark)} style={{
             background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)",
             borderRadius: 20, padding: "6px 12px", color: "#fff", cursor: "pointer",
@@ -113,7 +113,6 @@ export default function Navbar({ currentPage, onNavigate, dark, setDark }) {
               border: "none",
               color: "#fff", 
               cursor: "pointer",
-              display: "none",
               flexDirection: "column",
               gap: 6,
               width: 44,

@@ -1,11 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { GOLD, NAVY, PROPERTIES, TESTIMONIALS, FEATURES } from "../data/constants";
 
+const PUBLIC_URL = process.env.PUBLIC_URL || "";
+
 const HERO_IMAGES = [
-  "/images/green-tourmaline/living-room-1.jpg",
-  "/images/great-hornbill/exterior.avif",
-  "/images/green-tourmaline/lounge-netflix.jpg",
-  "/images/great-hornbill/living-room-1.avif",
+  `${PUBLIC_URL}/images/green-tourmaline/living-room-1.jpg`,
+  `${PUBLIC_URL}/images/great-hornbill/exterior.avif`,
+  `${PUBLIC_URL}/images/green-tourmaline/lounge-netflix.jpg`,
+  `${PUBLIC_URL}/images/great-hornbill/living-room-1.avif`,
 ];
 
 export default function Home({ onNavigate, dark }) {

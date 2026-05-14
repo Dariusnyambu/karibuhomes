@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { GOLD, NAVY, FEATURES } from "../data/constants";
 
+const PUBLIC_URL = process.env.PUBLIC_URL || "";
+
 export default function About({ onNavigate, dark }) {
   const bg = dark ? "#0a0f1e" : "#faf9f6";
   const surface = dark ? "#111827" : "#fff";
@@ -33,10 +35,10 @@ export default function About({ onNavigate, dark }) {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
             {[
-              "/images/green-tourmaline/living-room-1.jpg",
-              "/images/great-hornbill/master-bedroom-1.avif",
-              "/images/green-tourmaline/master-bedroom.jpg",
-              "/images/great-hornbill/exterior.avif",
+              `${PUBLIC_URL}/images/green-tourmaline/living-room-1.jpg`,
+              `${PUBLIC_URL}/images/great-hornbill/master-bedroom-1.avif`,
+              `${PUBLIC_URL}/images/green-tourmaline/master-bedroom.jpg`,
+              `${PUBLIC_URL}/images/great-hornbill/exterior.avif`,
             ].map((img, i) => (
               <div key={i} style={{ borderRadius: 8, overflow: "hidden", aspectRatio: i === 0 ? "16/9" : "1", ...(i === 0 ? { gridColumn: "1 / -1" } : {}) }}>
                 <img src={img} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s" }}
