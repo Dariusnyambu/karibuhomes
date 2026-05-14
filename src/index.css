@@ -1,0 +1,640 @@
+/* ═══════════════════════════════════════════════════════════════ */
+/* RESPONSIVE BASE STYLES - MOBILE FIRST APPROACH                 */
+/* ═══════════════════════════════════════════════════════════════ */
+
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+html { 
+  scroll-behavior: smooth; 
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ── ROOT CSS VARIABLES FOR RESPONSIVE VALUES ── */
+:root {
+  --spacing-xs: clamp(0.5rem, 2vw, 0.75rem);
+  --spacing-sm: clamp(0.75rem, 3vw, 1rem);
+  --spacing-md: clamp(1rem, 4vw, 1.5rem);
+  --spacing-lg: clamp(1.5rem, 5vw, 2.5rem);
+  --spacing-xl: clamp(2rem, 6vw, 3rem);
+  --spacing-2xl: clamp(2.5rem, 8vw, 4rem);
+  
+  --text-xs: clamp(0.75rem, 2vw, 0.875rem);
+  --text-sm: clamp(0.85rem, 2.5vw, 0.95rem);
+  --text-base: clamp(0.95rem, 3vw, 1rem);
+  --text-lg: clamp(1.1rem, 3.5vw, 1.25rem);
+  --text-xl: clamp(1.3rem, 4vw, 1.5rem);
+  --text-2xl: clamp(1.6rem, 5vw, 2rem);
+  --text-3xl: clamp(2rem, 6vw, 2.8rem);
+  --text-4xl: clamp(2.5rem, 7vw, 3.5rem);
+  
+  --touch-target: 44px;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { 
+  width: 8px; 
+  height: 8px;
+}
+
+::-webkit-scrollbar-track { 
+  background: #0d1f3c; 
+}
+
+::-webkit-scrollbar-thumb { 
+  background: #c9a227; 
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover { 
+  background: #e8c547; 
+}
+
+/* ── FORM INPUTS ── */
+input[type="date"],
+input[type="time"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  color-scheme: light dark;
+  font-family: inherit;
+  font-size: 16px; /* Prevent zoom on iOS */
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator { 
+  opacity: 0.6; 
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover { 
+  opacity: 1; 
+}
+
+/* ── ACCESSIBILITY: FOCUS STATES ── */
+button, a, select, input { outline-offset: 2px; }
+button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible {
+  outline: 2px solid #c9a227;
+}
+
+/* ── IMAGES & MEDIA ── */
+img { 
+  max-width: 100%; 
+  height: auto;
+  display: block;
+}
+
+video { 
+  max-width: 100%; 
+  height: auto; 
+}
+
+/* ── TYPOGRAPHY UTILITIES ── */
+h1 { font-size: var(--text-4xl); }
+h2 { font-size: var(--text-3xl); }
+h3 { font-size: var(--text-2xl); }
+h4 { font-size: var(--text-xl); }
+p { font-size: var(--text-base); }
+
+/* ── UTILITY CLASSES ── */
+.text-sm { font-size: var(--text-sm) !important; }
+.text-base { font-size: var(--text-base) !important; }
+.text-lg { font-size: var(--text-lg) !important; }
+
+.gap-sm { gap: var(--spacing-sm) !important; }
+.gap-md { gap: var(--spacing-md) !important; }
+.gap-lg { gap: var(--spacing-lg) !important; }
+
+.p-sm { padding: var(--spacing-sm) !important; }
+.p-md { padding: var(--spacing-md) !important; }
+.p-lg { padding: var(--spacing-lg) !important; }
+
+/* ═══════════════════════════════════════════════════════════════ */
+/* RESPONSIVE NAVIGATION                                           */
+/* ═══════════════════════════════════════════════════════════════ */
+
+/* Mobile-first: Show hamburger menu */
+.hamburger { 
+  display: flex !important;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 8px;
+  width: var(--touch-target);
+  height: var(--touch-target);
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2.5px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* Desktop: Hide hamburger */
+.nav-desktop { display: none !important; }
+
+/* ─ TABLET & UP: Show desktop nav ─ */
+@media (min-width: 769px) {
+  .nav-desktop { display: flex !important; }
+  .hamburger { display: none !important; }
+}
+
+/* Mobile: Show hamburger menu */
+@media (max-width: 768px) {
+  .hamburger { 
+    display: flex !important; 
+  }
+  
+  .nav-desktop { display: none !important; }
+}
+
+/* ── THUMBNAIL SCROLLBAR ── */
+.thumb-strip { 
+  scrollbar-width: thin; 
+  scrollbar-color: #c9a227 transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+.thumb-strip::-webkit-scrollbar { 
+  height: 6px; 
+}
+
+.thumb-strip::-webkit-scrollbar-track { 
+  background: rgba(201, 162, 39, 0.1); 
+}
+
+.thumb-strip::-webkit-scrollbar-thumb { 
+  background: #c9a227; 
+  border-radius: 3px;
+}
+
+/* ═══════════════════════════════════════════════════════════════ */
+/* RESPONSIVE SECTIONS & CONTAINERS                               */
+/* ═══════════════════════════════════════════════════════════════ */
+
+section, [data-section] { 
+  padding: var(--spacing-lg);
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  section, [data-section] { 
+    padding: var(--spacing-md);
+  }
+}
+
+/* ─ SEARCH BAR GRID ─ */
+.search-bar-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  flex-direction: column;
+}
+
+@media (min-width: 641px) {
+  .search-bar-grid {
+    flex-direction: row;
+  }
+}
+
+/* Hero Search Form Fields - Stack on mobile */
+@media (max-width: 480px) {
+  [style*="marginTop"][style*="backdropFilter"] {
+    flex-direction: column !important;
+    row-gap: var(--spacing-md) !important;
+  }
+  
+  [style*="marginTop"][style*="backdropFilter"] > div {
+    width: 100% !important;
+  }
+  
+  [style*="marginTop"][style*="backdropFilter"] button {
+    width: 100% !important;
+    margin-top: var(--spacing-sm) !important;
+  }
+}
+
+/* ─ PROPERTY CARD RESPONSIVE ─ */
+.property-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+@media (min-width: 769px) {
+  .property-card {
+    flex-direction: row;
+    gap: var(--spacing-lg);
+  }
+}
+
+.property-card img {
+  width: 100%;
+  height: clamp(200px, 50vw, 300px);
+  object-fit: cover;
+}
+
+@media (min-width: 769px) {
+  .property-card img {
+    flex: 0 0 45%;
+  }
+}
+
+/* ─ GRID LAYOUTS ─ */
+[style*="gridTemplateColumns"] {
+  gap: var(--spacing-md) !important;
+}
+
+@media (max-width: 480px) {
+  [style*="gridTemplateColumns"] { 
+    grid-template-columns: 1fr !important; 
+  }
+}
+
+@media (max-width: 640px) and (min-width: 481px) {
+  [style*="gridTemplateColumns"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* ─ HIDE ON SMALL SCREENS ─ */
+.hide-sm { display: none !important; }
+
+@media (min-width: 641px) {
+  .hide-sm { display: block !important; }
+}
+
+.hide-md { display: none !important; }
+
+@media (min-width: 769px) {
+  .hide-md { display: block !important; }
+}
+
+/* ─ BUTTON ROWS ─ */
+.btn-row { 
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+@media (min-width: 481px) {
+  .btn-row {
+    flex-direction: row;
+  }
+
+  .btn-row button, .btn-row a { 
+    flex: 1;
+  }
+}
+
+.btn-row button, .btn-row a { 
+  width: 100%;
+  min-height: var(--touch-target);
+  text-align: center;
+}
+
+/* Navbar controls on mobile */
+@media (max-width: 768px) {
+  /* Keep theme toggle but smaller */
+  nav > div:last-child button:first-child {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+  
+  /* Keep Book Now button visible but with responsive sizing */
+  nav > div:last-child button:nth-child(2) {
+    padding: 8px 12px;
+    font-size: 11px;
+    min-height: auto;
+  }
+  
+  /* Better gap for mobile nav controls */
+  nav > div:last-child {
+    gap: 8px;
+  }
+}
+
+/* ─ FORM GRID ─ */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+}
+
+@media (min-width: 641px) {
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .form-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════ */
+/* RESPONSIVE TYPOGRAPHY & SPACING                                */
+/* ═══════════════════════════════════════════════════════════════ */
+
+/* Gallery masonry: responsive columns */
+[style*="columns:"] { 
+  columns: 1 !important;
+  column-gap: var(--spacing-md);
+}
+
+@media (min-width: 481px) {
+  [style*="columns:"] { 
+    columns: 2 !important; 
+  }
+}
+
+@media (min-width: 769px) {
+  [style*="columns:"] { 
+    columns: 3 !important; 
+  }
+}
+
+@media (min-width: 1024px) {
+  [style*="columns:"] { 
+    columns: 4 !important; 
+  }
+}
+
+/* ─ PROPERTY CARD IMAGE SCALING ─ */
+img[style*="height: 230"] { 
+  height: clamp(180px, 50vw, 230px) !important; 
+}
+
+img[style*="height: 200"] { 
+  height: clamp(160px, 40vw, 200px) !important; 
+}
+
+/* ─ HEADING RESPONSIVENESS ─ */
+h1 { 
+  line-height: 1.15;
+  word-break: break-word;
+}
+
+h2, h3 { 
+  line-height: 1.25;
+}
+
+/* ═══════════════════════════════════════════════════════════════ */
+/* ANIMATIONS & TRANSITIONS                                        */
+/* ═══════════════════════════════════════════════════════════════ */
+
+@keyframes fadeUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up { 
+  animation: fadeUp 0.6s ease forwards; 
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.6s ease forwards;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.6s ease forwards;
+}
+
+/* ═══════════════════════════════════════════════════════════════ */
+/* MOBILE MENU STYLING                                              */
+/* ═══════════════════════════════════════════════════════════════ */
+
+/* Mobile menu backdrop */
+@media (max-width: 768px) {
+  /* Prevent scrolling when menu is open */
+  body.menu-open {
+    overflow: hidden;
+  }
+  
+  /* Mobile menu items styling */
+  div[style*="slideDown"] {
+    scrollbar-width: thin;
+    scrollbar-color: #c9a227 transparent;
+  }
+  
+  /* Mobile menu item hover state */
+  div[style*="textTransform: uppercase"]:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════ */
+
+/* MOBILE (up to 480px) */
+@media (max-width: 480px) {
+  body { font-size: 14px; }
+  
+  /* Hide desktop nav elements on mobile */
+  .nav-desktop { display: none !important; }
+  
+  /* Show hamburger button */
+  .hamburger { display: flex !important; }
+  
+  /* Reduce hero heading */
+  h1 { font-size: clamp(1.8rem, 5vw, 2.2rem) !important; }
+  
+  /* Better hero section spacing */
+  section[style*="height: 100vh"],
+  section[id="home"] {
+    padding-top: clamp(4rem, 10vw, 5rem) !important;
+    padding-bottom: clamp(2rem, 8vw, 3rem) !important;
+    min-height: auto !important;
+  }
+  
+  /* Contact form adjustments */
+  textarea { min-height: 120px; }
+  
+  /* Hero content wrapper - better vertical spacing */
+  section div[style*="maxWidth: 820"] {
+    padding-top: clamp(1.5rem, 6vw, 2rem) !important;
+    padding-bottom: clamp(2rem, 8vw, 3rem) !important;
+  }
+  
+  /* Improve search form spacing on mobile */
+  div[style*="backdropFilter"] {
+    gap: 1rem !important;
+    padding: 1.25rem !important;
+  }
+}
+
+/* TABLET (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  body { font-size: 15px; }
+  
+  /* Hide desktop nav and show hamburger on tablets */
+  .nav-desktop { display: none !important; }
+  .hamburger { display: flex !important; }
+  
+  h1 { font-size: clamp(2rem, 5.5vw, 2.5rem) !important; }
+  
+  section, [data-section] { 
+    padding: var(--spacing-lg) !important; 
+  }
+}
+
+/* DESKTOP (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  body { font-size: 15px; }
+  
+  section, [data-section] { 
+    padding: var(--spacing-xl) !important; 
+  }
+}
+
+/* LARGE DESKTOP (1025px+) */
+@media (min-width: 1025px) {
+  body { font-size: 16px; }
+  
+  section, [data-section] { 
+    padding: var(--spacing-2xl) !important; 
+  }
+  
+  /* Better spacing for large screens */
+  .container, [style*="maxWidth"], [style*="max-width"] {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+/* EXTRA LARGE (1440px+) */
+@media (min-width: 1440px) {
+  :root {
+    --spacing-2xl: 4rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════ */
+/* LANDSCAPE MODE ADJUSTMENTS                                      */
+/* ═══════════════════════════════════════════════════════════════ */
+
+@media (max-height: 500px) and (orientation: landscape) {
+  section[style*="height: 100vh"] { 
+    min-height: auto !important; 
+    padding: var(--spacing-md) !important;
+  }
+  
+  h1 { font-size: clamp(1.5rem, 4vw, 2rem) !important; }
+}
+
+/* ═══════════════════════════════════════════════════════════════ */
+/* TOUCH DEVICE OPTIMIZATIONS                                      */
+/* ═══════════════════════════════════════════════════════════════ */
+
+@media (hover: none) and (pointer: coarse) {
+  /* Touch devices: larger touch targets */
+  button, a, select, input[type="checkbox"], input[type="radio"] {
+    min-height: var(--touch-target);
+    min-width: var(--touch-target);
+  }
+  
+  /* Remove hover effects on touch */
+  button:hover { transform: none !important; }
+  a:hover { transform: none !important; }
+  
+  /* Add active state instead */
+  button:active { opacity: 0.8; }
+  a:active { opacity: 0.8; }
+}
+
+/* ═══════════════════════════════════════════════════════════════ */
+/* DARK MODE SUPPORT                                               */
+/* ═══════════════════════════════════════════════════════════════ */
+
+@media (prefers-color-scheme: dark) {
+  input[type="date"],
+  input[type="time"],
+  select {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════ */
+/* PRINTING ── Optimize for print ──                              */
+/* ═══════════════════════════════════════════════════════════════ */
+
+@media print {
+  nav, .navbar, footer { display: none; }
+  body { font-size: 12pt; }
+  a[href]::after { content: " (" attr(href) ")"; }
+}
