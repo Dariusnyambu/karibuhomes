@@ -1,8 +1,8 @@
 {
-  "name": "karibu-diaspora-homes",
+  "name": "diasporahomes",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://dariusnyambu.github.io/karibu-diaspora-homes",
+  "homepage": "https://dariusnyambu.github.io/Diasporahomes",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
