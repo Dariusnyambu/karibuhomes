@@ -103,33 +103,34 @@ export default function Navbar({ currentPage, onNavigate, dark, setDark }) {
             onMouseEnter={e => e.currentTarget.style.transform = "translateY(-2px)"}
             onMouseLeave={e => e.currentTarget.style.transform = "none"}
           >Book Now</button>
-
-          {/* Hamburger Menu Button */}
-          <button 
-            onClick={() => setMenuOpen(!menuOpen)} 
-            className="hamburger"
-            style={{
-              background: "transparent", 
-              border: "none",
-              color: "#fff", 
-              cursor: "pointer",
-              flexDirection: "column",
-              gap: 6,
-              width: 44,
-              height: 44,
-              justifyContent: "center",
-              alignItems: "center",
-              padding: 8,
-              transition: "transform 0.3s ease",
-            }}
-            aria-label="Toggle menu"
-            aria-expanded={menuOpen}
-          >
-            <span style={{ width: 24, height: 2.5, background: "#fff", borderRadius: 2, transition: "all 0.3s ease", transform: menuOpen ? "rotate(45deg) translate(8px, 8px)" : "none" }} />
-            <span style={{ width: 24, height: 2.5, background: "#fff", borderRadius: 2, transition: "all 0.3s ease", opacity: menuOpen ? 0 : 1 }} />
-            <span style={{ width: 24, height: 2.5, background: "#fff", borderRadius: 2, transition: "all 0.3s ease", transform: menuOpen ? "rotate(-45deg) translate(7px, -7px)" : "none" }} />
-          </button>
         </div>
+
+        {/* Hamburger Menu Button - Mobile only */}
+        <button 
+          onClick={() => setMenuOpen(!menuOpen)} 
+          className="hamburger"
+          style={{
+            background: "transparent", 
+            border: "none",
+            color: "#fff", 
+            cursor: "pointer",
+            display: "flex",
+            flexDirection: "column",
+            gap: 6,
+            width: 44,
+            height: 44,
+            justifyContent: "center",
+            alignItems: "center",
+            padding: 8,
+            transition: "transform 0.3s ease",
+          }}
+          aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+        >
+          <span style={{ width: 24, height: 2.5, background: "#fff", borderRadius: 2, transition: "all 0.3s ease", transform: menuOpen ? "rotate(45deg) translate(8px, 8px)" : "none" }} />
+          <span style={{ width: 24, height: 2.5, background: "#fff", borderRadius: 2, transition: "all 0.3s ease", opacity: menuOpen ? 0 : 1 }} />
+          <span style={{ width: 24, height: 2.5, background: "#fff", borderRadius: 2, transition: "all 0.3s ease", transform: menuOpen ? "rotate(-45deg) translate(7px, -7px)" : "none" }} />
+        </button>
       </nav>
 
       {/* Mobile Menu Overlay */}

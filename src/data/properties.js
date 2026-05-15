@@ -13,9 +13,12 @@ export const PROPERTIES = [
     amenities: ["Free WiFi", "Smart TV", "Free Parking", "Full Kitchen", "Hot Shower", "Security", "Balcony", "Workspace"],
     amenityIcons: ["📶", "📺", "🚗", "🍳", "🚿", "🔒", "🌿", "💼"],
     images: [
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80",
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80",
+      "/images/great-hornbill/living-room-1.avif",
+      "/images/great-hornbill/master-bedroom-1.avif",
+      "/images/great-hornbill/exterior.avif",
+      "/images/great-hornbill/lounge-netflix.avif",
+      "/images/great-hornbill/living-room-2.avif",
+      "/images/great-hornbill/bedroom-2.avif",
     ],
     description:
       "A spacious 3-bedroom retreat nestled in the serene Golf View Estate. Featuring a stunning balcony view, modern furnishings, and all the comforts of home.",
@@ -34,9 +37,11 @@ export const PROPERTIES = [
     amenities: ["Free WiFi", "Free Parking", "Netflix", "Ensuite Bathrooms", "Kitchen", "Washing Machine", "Security", "Modern Interior"],
     amenityIcons: ["📶", "🚗", "🎬", "🛁", "🍳", "👕", "🔒", "✨"],
     images: [
-      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80",
-      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=80",
-      "https://images.unsplash.com/photo-1565183928294-7063f23ce0f8?w=800&q=80",
+      "/images/green-tourmaline/living-room-1.jpg",
+      "/images/green-tourmaline/master-bedroom.jpg",
+      "/images/green-tourmaline/exterior.jpg",
+      "/images/green-tourmaline/dining.jpg",
+      "/images/green-tourmaline/kitchen-1.jpg",
     ],
     description:
       "All-ensuite luxury living in the heart of Golf View Estate. Perfect for families and groups seeking premium comfort with Netflix, modern design, and private bathrooms.",

@@ -166,6 +166,7 @@ p { font-size: var(--text-base); }
 
 /* Desktop: Hide hamburger */
 .nav-desktop { display: none !important; }
+.nav-controls { display: none !important; }
 
 /* ─ TABLET & UP: Show desktop nav ─ */
 @media (min-width: 769px) {
