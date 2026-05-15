@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Diasporahomes/static/css/main.a13aa59c.css",
+    "main.js": "/Diasporahomes/static/js/main.32bf2358.js",
+    "index.html": "/Diasporahomes/index.html",
+    "main.a13aa59c.css.map": "/Diasporahomes/static/css/main.a13aa59c.css.map",
+    "main.32bf2358.js.map": "/Diasporahomes/static/js/main.32bf2358.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a13aa59c.css",
+    "static/js/main.32bf2358.js"
+  ]
+}
